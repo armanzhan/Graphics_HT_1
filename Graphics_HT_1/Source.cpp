@@ -7,6 +7,13 @@
 #include "XYZ.h"
 
 
+/*
+git add .
+git commit -am "Название коммита"
+git status
+git push
+*/
+
 int col(int v1) {
 	int co = 0;
 	while (v1 != 0) {
