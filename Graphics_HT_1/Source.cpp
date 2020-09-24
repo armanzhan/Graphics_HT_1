@@ -81,15 +81,19 @@ void rgb2hsv(RGB & rgb, HSV & hsv) {
 						hsv.h = 60 * (r - g) / (max - min) + 240;
 	}
 	/*else {
-		//int * h = &(hsv.h);
-		//h = NULL;
+		int * h = &(hsv.h);
+		h = NULL;
 	}*/
 
 	//__S____________________________________________________________
 	if (max == 0)
 		hsv.s = 0;
-	else
-		hsv.s = 1 - min / max;
+	else {
+		float mi = min;
+		float ma = max;
+		float s = 1 - (mi / ma);
+		hsv.s = s;
+	}
 
 	//__V____________________________________________________________
 	hsv.v = ((float)max) / 255;
@@ -305,21 +309,7 @@ int main() {
 			break;
 		}
 		case 4: {
-			char c;
-			/*std::cin >> c; */
-			std::cin >> floatv2;
-			std::cin >> floatv3;/*if (c <= '9' && c >= '0') {
-				*/
-			std::cin >> intv1;/*
-				hsv.h = (c - '0')*col(intv1) + intv1;
-			}
-			else {
-				while (c != ' ') {
-					std::cin >> c;
-				}
-				int * h = &(hsv.h);
-				hsv.h = NULL;
-			}*/
+			std::cin >> intv1 >> floatv2 >> floatv3 ;
 
 			hsv.h = intv1;
 			hsv.s = floatv2;
@@ -358,14 +348,14 @@ int main() {
 		rgb2hls(rgb, hls);
 		rgb2xyz(rgb, xyz);
 
-		std::cout << "===============================" << std::endl;
-		std::cout << "RGB +: " << rgb;
-		std::cout << "CMY +: " << cmy;
-		std::cout << "CMYK+: " << cmyk;
-		std::cout << "HSV ?: " << hsv;
-		std::cout << "HSL ?: " << hls;
-		std::cout << "XYZ +: " << xyz;
-		std::cout << "===============================" << std::endl;
+		std::cout << "=========================================" << std::endl;
+		std::cout << "RGB  : " << rgb;
+		std::cout << "CMY  : " << cmy;
+		std::cout << "CMYK : " << cmyk;
+		std::cout << "HSV  : " << hsv;
+		std::cout << "HSL  : " << hls;
+		std::cout << "XYZ  : " << xyz;
+		std::cout << "=========================================" << std::endl;
 
 
 	}
