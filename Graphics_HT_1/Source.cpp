@@ -259,6 +259,8 @@ void xyz2rgb(XYZ & xyz, RGB & rgb) {
 
 
 int main() {
+	setlocale(LC_ALL, "Russian");
+
 	RGB		rgb		(0, 0, 0	);
 	CMY		cmy		(0, 0, 0	);
 	CMYK	cmyk	(0, 0, 0, 0	);
@@ -270,18 +272,19 @@ int main() {
 	float floatv1, floatv2, floatv3, floatv4;
 
 	while (c != 0) {
-		std::cout << "0: exit" << std::endl;
-		std::cout << "1: rgb " << std::endl;
-		std::cout << "2: cmy " << std::endl;
-		std::cout << "3: cmyk" << std::endl;
-		std::cout << "4: hsv " << std::endl;
-		std::cout << "5: hls " << std::endl;
-		std::cout << "6: xyz " << std::endl;
+		std::cout << "0: exit " << std::endl;
+		std::cout << "1: rgb            - 3 вещестевнных числа [ 0, 1 ]" << std::endl;
+		std::cout << "2: cmy            - 3 вещестевнных числа [ 0, 1 ]" << std::endl;
+		std::cout << "3: cmyk           - 4 вещестевнных числа [ 0, 1 ]" << std::endl;
+		std::cout << "4: hsv            - целый угол [ 0, 255 ] и 2 вещественных числа [ 0, 1 ]" << std::endl;
+		std::cout << "5: hls            - целый угол [ 0, 255 ] и 2 вещественных числа [ 0, 1 ]" << std::endl;
+		std::cout << "6: xyz            - 3 вещестевнных числа [ 0, 1 ]" << std::endl;
 
 		std::cin >> c;
 
 		switch (c) {
 		case 1: {
+			std::cout << "введите через пробел 3 вещественных числа от 0 до 1: ";
 			std::cin >> floatv1 >> floatv2 >> floatv3;
 			rgb.r = floatv1;
 			rgb.g = floatv2;
@@ -290,6 +293,7 @@ int main() {
 			break;
 		}
 		case 2: {
+			std::cout << "введите через пробел 3 вещественных числа от 0 до 1: ";
 			std::cin >> floatv1 >> floatv2 >> floatv3;
 			cmy.c = floatv1;
 			cmy.m = floatv2;
@@ -299,6 +303,7 @@ int main() {
 			break;
 		}
 		case 3: {
+			std::cout << "введите через пробел 4 вещественных числа от 0 до 1: ";
 			std::cin >> floatv1 >> floatv2 >> floatv3 >> floatv4;
 			cmyk.c = floatv1;
 			cmyk.m = floatv2;
@@ -309,6 +314,8 @@ int main() {
 			break;
 		}
 		case 4: {
+
+			std::cout << "введите через пробел 3 числа: 1 целое и два вещественных от 0 до 1: ";
 			std::cin >> intv1 >> floatv2 >> floatv3 ;
 
 			hsv.h = intv1;
@@ -319,6 +326,7 @@ int main() {
 			break;
 		}
 		case 5: {
+			std::cout << "введите через пробел 3 числа: 1 целое и два вещественных от 0 до 1: ";
 			std::cin >> intv1 >> floatv2 >> floatv3;
 			hls.h = intv1;
 			hls.l = floatv2;
@@ -332,6 +340,7 @@ int main() {
 			break;
 		}
 		case 6: {
+			std::cout << "введите через пробел 3 вещественных числа от 0 до 1: ";
 			std::cin >> floatv1 >> floatv2 >> floatv3;
 			xyz.x = floatv1;
 			xyz.y = floatv2;
